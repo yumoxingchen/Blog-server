@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from app.findArticleList import findArticleList
 
 app = FastAPI()
 
@@ -26,3 +27,8 @@ app.add_middleware(
 @app.get("/")
 async def main():
     return {"博客API"}
+
+@app.get("/articleinfo")
+async def articleinfo():
+  
+  return findArticleList()
